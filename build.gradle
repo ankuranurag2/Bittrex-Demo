@@ -4,13 +4,16 @@ buildscript {
 
     ext {
         kotlin_version = '1.3.61'
+        gsonVersion = '2.8.2'
+        retrofitVersion = '2.7.1'
+        okhttpVersion = '4.2.2'
     }
 
     repositories {
         google()
         jcenter()
-
     }
+
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.3'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
