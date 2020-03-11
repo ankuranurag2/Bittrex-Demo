@@ -9,6 +9,7 @@ buildscript {
         okhttpVersion = '4.2.2'
         roomVersion = '2.2.4'
         lifecycleVersion = '2.2.0'
+        koinVersion = '2.0.1'
     }
 
     repositories {
