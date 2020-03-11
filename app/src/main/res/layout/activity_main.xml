@@ -10,8 +10,8 @@
             type="boolean" />
 
         <variable
-            name="viewmodel"
-            type="ankuranurag2.assignment.viewmodels.MainViewModel" />
+            name="emptyMsg"
+            type="java.lang.String" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -43,10 +43,11 @@
             app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
         <TextView
+            android:id="@+id/empty_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@{viewmodel.emptyMsg,default=`No data found!`}"
+            android:text="@{emptyMsg,default=`No data found!`}"
             android:textSize="18sp"
             android:visibility="@{isEmpty ? View.VISIBLE : View.GONE}"
             app:layout_constraintBottom_toBottomOf="parent"

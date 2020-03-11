@@ -16,15 +16,15 @@ import kotlinx.coroutines.launch
  * created by ankur on 11/3/20
  */
 class MainViewModel(
-    private val application: AssignmentApp,
+    private val app: Application,
     private val currencyRepository: CurrencyRepository
-) : AndroidViewModel(application) {
+) : AndroidViewModel(app) {
 
     val currencyDataList = MutableLiveData<List<CurrencyData>>()
-    val emptyMsg=MutableLiveData<String>()
+    val emptyMsg = MutableLiveData<String>()
 
     init {
-        fetchCurrencyData(application.applicationContext.checkForInternet())
+        fetchCurrencyData(app.applicationContext.checkForInternet())
     }
 
     private fun fetchCurrencyData(isConnected: Boolean) = viewModelScope.launch {
