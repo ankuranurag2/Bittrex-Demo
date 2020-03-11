@@ -1,5 +1,6 @@
 package ankuranurag2.assignment.models
 
+import ankuranurag2.assignment.data.db.CurrencyData
 import com.google.gson.annotations.SerializedName
 
 
@@ -13,25 +14,4 @@ data class CurrencyResponse(
     val result: List<CurrencyData>?,
     @SerializedName("success")
     val success: Boolean?
-)
-
-data class CurrencyData(
-    @SerializedName("BaseAddress")
-    val baseAddress: String?,
-    @SerializedName("CoinType")
-    val coinType: String?,
-    @SerializedName("Currency")
-    val currency: String?,
-    @SerializedName("CurrencyLong")
-    val currencyLong: String?,
-    @SerializedName("IsActive")
-    val isActive: Boolean?,
-    @SerializedName("IsRestricted")
-    val isRestricted: Boolean?,
-    @SerializedName("MinConfirmation")
-    val minConfirmation: Int?,
-    @SerializedName("Notice")
-    val notice: String?,
-    @SerializedName("TxFee")
-    val txFee: Double?
 )
