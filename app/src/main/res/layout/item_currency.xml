@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="ankuranurag2.assignment.data.db.CurrencyData" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/white"
+        android:layout_margin="@dimen/dimen_5dp"
+        app:cardCornerRadius="@dimen/toolbar_elevation"
+        app:cardElevation="@dimen/toolbar_elevation">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_10dp">
+
+            <TextView
+                android:id="@+id/currency_title"
+                style="@style/title_style"
+                android:text="@string/currency"
+                app:layout_constraintEnd_toStartOf="@+id/currency_long_title"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/currency_long_title"
+                style="@style/title_style"
+                android:text="@string/currency_long"
+                app:layout_constraintBaseline_toBaselineOf="@id/currency_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/currency_title"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/title_barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="currency_title,currency_long_title" />
+
+            <TextView
+                android:id="@+id/currency_tv"
+                style="@style/data_style"
+                android:text="@{data.currency}"
+                app:layout_constraintBaseline_toBaselineOf="@id/currency_long_tv"
+                app:layout_constraintEnd_toStartOf="@id/currency_long_tv"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title_barrier"
+                tools:text="@string/currency_long" />
+
+            <TextView
+                android:id="@+id/currency_long_tv"
+                style="@style/data_style"
+                android:text="@{data.currencyLong}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/currency_tv"
+                app:layout_constraintTop_toBottomOf="@id/title_barrier"
+                tools:text="@string/currency_long" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/data_barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="currency_long_tv,currency_tv" />
+
+            <TextView
+                android:id="@+id/txn_title"
+                style="@style/title_style"
+                android:layout_marginTop="@dimen/toolbar_elevation"
+                android:text="@string/txn_value"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/data_barrier"
+                app:layout_goneMarginTop="10dp" />
+
+            <TextView
+                android:id="@+id/txn_tv"
+                style="@style/data_style"
+                app:setDouble="@{data.txFee}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txn_title"
+                tools:text="@string/txn_value" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

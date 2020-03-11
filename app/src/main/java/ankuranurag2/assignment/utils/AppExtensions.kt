@@ -29,7 +29,6 @@ fun Context.checkForInternet(): Boolean {
                     ConnectivityManager.TYPE_ETHERNET -> true
                     else -> false
                 }
-
             }
         }
     }
