@@ -10,4 +10,14 @@
         <item name="windowActionBar">false</item>
     </style>
 
+    <style name="title_style">
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+    </style>
+
+    <style name="data_style" parent="title_style">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
 </resources>

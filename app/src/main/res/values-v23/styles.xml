@@ -18,6 +18,7 @@
 
     <style name="data_style" parent="title_style">
         <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/black</item>
     </style>
 </resources>

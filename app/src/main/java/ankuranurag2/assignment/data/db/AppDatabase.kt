@@ -9,7 +9,7 @@ import ankuranurag2.assignment.utils.DATABASE_NAME
 /**
  * created by ankur on 11/3/20
  */
-@Database(entities = [CurrencyData::class], version = 1, exportSchema = true)
+@Database(entities = [CurrencyData::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun getCurrencyDao():CurrencyDao

@@ -16,7 +16,7 @@ import com.google.gson.annotations.SerializedName
 data class CurrencyData(
     @PrimaryKey
     @SerializedName("Currency")
-    val currency: String?,
+    val currency: String,
     @SerializedName("CurrencyLong")
     val currencyLong: String?,
     @SerializedName("TxFee")

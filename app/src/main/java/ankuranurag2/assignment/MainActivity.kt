@@ -1,7 +1,7 @@
 package ankuranurag2.assignment
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import ankuranurag2.assignment.adapter.CurrencyAdapter
@@ -30,11 +30,13 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
+        viewModel.isLoading.observe(this, Observer {
+            binding.isLoading = it
+        })
+
         viewModel.emptyMsg.observe(this, Observer {
-            it?.let {
-                binding.isEmpty = true
-                binding.emptyTv.text = it
-            }
+            binding.isEmpty=true
+            binding.emptyMsg=it
         })
     }
 }

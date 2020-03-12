@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">BitTrex</string>
+    <string name="currency">Currency</string>
+    <string name="currency_long">Currency Long</string>
+    <string name="txn_value">TXN Value</string>
 </resources>
