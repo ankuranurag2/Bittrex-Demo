@@ -2,5 +2,9 @@
     <string name="app_name">BitTrex</string>
     <string name="currency">Currency</string>
     <string name="currency_long">Currency Long</string>
-    <string name="txn_value">TXN Value</string>
+    <string name="txn_value">TX Value</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+    <string name="no_data_found">No data found!</string>
+    <string name="default_string">-</string>
 </resources>

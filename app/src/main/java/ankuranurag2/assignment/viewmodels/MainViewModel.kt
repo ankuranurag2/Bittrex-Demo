@@ -1,13 +1,13 @@
 package ankuranurag2.assignment.viewmodels
 
 import android.app.Application
+import android.content.Context
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import ankuranurag2.assignment.data.db.CurrencyData
 import ankuranurag2.assignment.models.Status
 import ankuranurag2.assignment.repository.CurrencyRepository
-import ankuranurag2.assignment.utils.checkForInternet
 import kotlinx.coroutines.launch
 
 /**
@@ -24,13 +24,13 @@ class MainViewModel(
     val isLoading = MutableLiveData<Boolean>(true)
 
     init {
-        fetchCurrencyData(app.applicationContext.checkForInternet())
+        fetchCurrencyData(app.applicationContext)
     }
 
-    private fun fetchCurrencyData(isConnected: Boolean) = viewModelScope.launch {
+    private fun fetchCurrencyData(context:Context) = viewModelScope.launch {
 
         isLoading.postValue(true)
-        val apiResponse = currencyRepository.getCurrencyData(isConnected)
+        val apiResponse = currencyRepository.getCurrencyData(context)
         isLoading.postValue(false)
 
         if (apiResponse.status == Status.SUCCESS) {

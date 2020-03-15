@@ -1,9 +1,9 @@
 package ankuranurag2.assignment.di
 
 import ankuranurag2.assignment.data.network.ApiService
+import ankuranurag2.assignment.utils.AppUtils
 import ankuranurag2.assignment.utils.BASE_URL
 import ankuranurag2.assignment.utils.DEFAULT_TIME_OUT
-import ankuranurag2.assignment.utils.isUAT
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -26,7 +26,7 @@ val networkModule = module {
 fun getOkHttpClient(interceptor: HttpLoggingInterceptor): OkHttpClient {
     val builder = OkHttpClient().newBuilder()
 
-    if (isUAT())
+    if (AppUtils.isUAT())
         builder.addInterceptor(interceptor)
 
     return builder.connectTimeout(DEFAULT_TIME_OUT, TimeUnit.SECONDS)

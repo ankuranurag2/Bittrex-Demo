@@ -1,20 +1,22 @@
 package ankuranurag2.assignment.repository
 
+import android.content.Context
 import ankuranurag2.assignment.data.db.CurrencyDao
 import ankuranurag2.assignment.data.db.CurrencyData
 import ankuranurag2.assignment.data.network.ApiService
 import ankuranurag2.assignment.models.ApiResult
-import java.lang.Exception
+import ankuranurag2.assignment.utils.AppUtils
+import ankuranurag2.assignment.utils.checkForInternet
 
 /**
  * created by ankur on 11/3/20
  */
-public class CurrencyRepository(private val apiService: ApiService, private val dao: CurrencyDao) {
+class CurrencyRepository(private val apiService: ApiService, private val dao: CurrencyDao) {
 
-    suspend fun getCurrencyData(isConnected: Boolean): ApiResult<List<CurrencyData>> {
+    suspend fun getCurrencyData(context: Context): ApiResult<List<CurrencyData>> {
         var currencyList: List<CurrencyData>? = null
 
-        if (isConnected) {
+        if (context.checkForInternet()) {
             try {
                 val response = apiService.getCurrencyData()
                 if (response.isSuccessful) {
@@ -32,6 +34,8 @@ public class CurrencyRepository(private val apiService: ApiService, private val 
         } else {
             currencyList = dao.getCurrencyData()
         }
+
+        AppUtils.sendNewDataBroadcast(context)
 
         return if (currencyList.isNullOrEmpty())
             ApiResult.error("No data found!")

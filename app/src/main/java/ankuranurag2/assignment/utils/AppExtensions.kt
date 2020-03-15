@@ -34,3 +34,6 @@ fun Context.checkForInternet(): Boolean {
     }
     return result
 }
+
+fun Int.decrease() = if (this > 1) (this - 1) else 0
+fun Int.increase() = (this + 1)
