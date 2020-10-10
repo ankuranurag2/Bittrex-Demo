@@ -7,7 +7,7 @@
 
         <variable
             name="data"
-            type="ankuranurag2.assignment.data.db.CurrencyData" />
+            type="ankuranurag2.biitrex.data.db.CurrencyData" />
     </data>
 
     <androidx.cardview.widget.CardView
